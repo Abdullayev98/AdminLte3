@@ -39,7 +39,7 @@ class Post extends Model
             {
                 Storage::delete($image);
             }
-            return $request->file('thumbnail')->store('images');
+            return $request->file('thumbnail')->store("images");
         }
         return null;    
     }

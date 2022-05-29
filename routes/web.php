@@ -7,6 +7,9 @@ use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\Admin\TagController;
+use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\SearchController;
+use App\Http\Controllers\TagsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,8 +24,9 @@ use App\Http\Controllers\Admin\TagController;
 
 Route::get('/', [PostsController::class, 'index'])->name('home');
 Route::get('/article/{slug}', [PostsController::class, 'show'])->name('post.single');
-Route::get('/category/{slug}', [CategoryController::class, 'show'])->name('category.single');
-Route::get('/tag/{slug}', [TagController::class, 'show'])->name('tag.single');
+Route::get('/category/{slug}', [CategoriesController::class, 'show'])->name('category.single');
+Route::get('/tag/{slug}', [TagsController::class, 'show'])->name('tag.single');
+Route::get('/search', [SearchController::class, 'index'])->name('search');
            
 Route::group(['prefix'=>'admin', 'middleware'=>'admin'],function(){
     Route::get('/',[MainController::class, 'index'])->name('admin.index');

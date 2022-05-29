@@ -11,7 +11,7 @@
             <li class="breadcrumb-item active">{{$post->title}}</li>
         </ol>
 
-        <span class="color-yellow"><a href="marketing-category.html" title="">Lifestyle</a></span>
+        <span class="color-yellow"><a href="{{route('category.single',['slug'=>$post->category->slug])}}" title="">{{$post->category->title}}</a></span>
 
         <h3>{{$post->title}}</h3>
 

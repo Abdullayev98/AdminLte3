@@ -10,6 +10,7 @@
     
     <!-- Site Metas -->
     <title>@yield('title')</title>
+
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -26,20 +27,20 @@
 <body>
 
     <div id="wrapper">
-      
         @include('layouts.navbar')
 
-        @yield('header')
+        @yield('page-title')
 
-        <section class="section lb @if (!Request::is('/')) m3rem @endif">
+        <section class="section lb">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
-                        @yield('content')
-                    </div><!-- end col -->
 
                     <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
                         @include('layouts.sidebar')
+                    </div><!-- end col -->
+
+                    <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                        @yield('content')
                     </div><!-- end col -->
                 </div><!-- end row -->
             </div><!-- end container --> 
@@ -160,11 +161,6 @@
             </div><!-- end container -->
         </footer><!-- end footer -->
 
-        <style>
-            .dmtop{
-                overflow: hidden;
-            }
-        </style>
         <div class="dmtop">Scroll to Top</div>
         
     </div><!-- end wrapper -->

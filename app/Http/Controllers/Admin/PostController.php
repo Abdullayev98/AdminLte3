@@ -48,6 +48,7 @@ class PostController extends Controller
             'category_id' => 'required|integer',
             'thumbnail' => 'nullable|image',
         ]);
+        $data = $request->all();
             
         $data['thumbnail'] = Post::uploadImage($request);
         $post = Post::create($data);

@@ -9,7 +9,7 @@ class PostsController extends Controller
 {
     public function index()
     {
-        $posts = Post::with('category')->orderby('id','desc')->paginate('2');
+        $posts = Post::with('category')->orderby('id','desc')->paginate(3);
         return view('posts.index', compact('posts'));
     }
     public function show($slug)

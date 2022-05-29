@@ -1,33 +1,29 @@
-@extends('layouts.layout')
+@extends('layouts.category_layout')
 
-@section('title','Markedia - Marketing Blog Template::Home')
-@section('header')
-<section  class="section"  id="cta">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-md-12 align-self-center">
-                <h2>A digital marketing blog</h2>
-                <p class="lead"> Aenean ut hendrerit nibh. Duis non nibh id tortor consequat cursus at mattis felis. Praesent sed lectus et neque auctor dapibus in non velit. Donec faucibus odio semper risus rhoncus rutrum. Integer et ornare mauris.</p>
-                <a href="#" class="btn btn-primary">Try for free</a>
-            </div>
-            <div class="col-lg-4 col-md-12">
-                <div class="newsletter-widget text-center align-self-center">
-                    <h3>Subscribe Today!</h3>
-                    <p>Subscribe to our weekly Newsletter and receive updates via email.</p>
-                    <form class="form-inline" method="post">
-                        <input type="text" name="email" placeholder="Add your email here.." required class="form-control" />
-                        <input type="submit" value="Subscribe" class="btn btn-default btn-block" />
-                    </form>         
-                </div><!-- end newsletter -->
-            </div>
-        </div>
-    </div>
-</section>
-@endsection
+@section('title','Markedia - Marketing Blog Template::Search')
+
+@section('page-title')
+    <div class="page-title db">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                    <h2>Search: {{$srch}}</h2>
+                </div><!-- end col -->
+                <div class="col-lg-4 col-md-4 col-sm-12 hidden-xs-down hidden-sm-down">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
+                        <li class="breadcrumb-item active">Search</li>
+                    </ol>
+                </div><!-- end col -->                    
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end page-title -->
+@endsection 
 @section('content')
    
     <div class="page-wrapper">
         <div class="blog-custom-build">
+            @if (count($posts))
             @foreach ($posts as $post )
             <div class="blog-box wow fadeIn">
                 <div class="post-media">
@@ -57,7 +53,10 @@
             </div><!-- end blog-box -->
 
             <hr class="invis">
-         @endforeach
+            @endforeach
+            @else
+                Hech narsa Topilmadi
+            @endif
         </div>
     </div>
 
@@ -67,7 +66,7 @@
     <div class="row">
         <div class="col-md-12">
             <nav aria-label="Page navigation">
-                {{$posts->links('pagination::bootstrap-4')}}
+                {{$posts->appends(['srch'=> request()->srch])->links('pagination::bootstrap-4')}}
             </nav>
         </div><!-- end col -->
     </div><!-- end row -->

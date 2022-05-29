@@ -70,7 +70,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div><img src="{{$post->getImage()}}" class="img-thumbnail" width="200px" alt=""></div>
+                                <div><img src="{{$post->getImage()}}" class="img-thumbnail mt-2" width="200" alt=""></div>
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary">Update</button>
                                 </div>
